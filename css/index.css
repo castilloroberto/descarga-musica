@@ -1,0 +1,141 @@
+*{
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --btn-bg:rgb(71, 71, 71);
+    --border-rad:5px;
+    --bg-btnplay:#26de81;
+    --bg-btndown:dodgerblue;
+}
+.navbar{
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    height: 3rem;
+    padding: 10px;
+}
+.brand{
+    display: flex;
+    flex-grow: 1;
+}
+.brand svg{
+    width: 20px;
+}
+.cajasearch{
+    display: flex;
+    flex-grow: 1;
+}
+.search{
+    border-top-left-radius: var(--border-rad);
+    border-bottom-left-radius: var(--border-rad);
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    background-color: black;
+    border: 1px solid var(--btn-bg);
+    
+}
+
+.search input{
+    border-top-left-radius: var(--border-rad);
+    border-bottom-left-radius: var(--border-rad);
+    width: 500px;
+    height: 33px;
+    padding: 5px;
+    background-color: black;
+    border: none;
+    border: 1px solid black;
+    outline: none;
+    color: white;
+    
+}
+.search input:focus{
+    border: 1px solid dodgerblue;
+
+}
+.btn{
+    cursor: pointer;
+    padding: 5px;
+    background: none;
+    border: none;
+    outline: none;
+}
+.search button.btn{
+    height: 33px;
+    width: 75px;
+    background-color: var(--btn-bg);
+    border: 1px solid var(--btn-bg);
+    transition: color 0.75s;
+}
+.search button:hover svg{
+    color: rgb(175, 175, 175);
+}
+.search button svg {
+
+    color: rgb(122, 122, 122);
+    width: 15px;    
+}
+
+
+
+
+
+
+
+
+
+
+
+main{
+    margin-top: 4rem;
+    margin-left: 3rem;
+}
+
+.flexcontainer{
+    display: flex;
+}
+
+.card{
+    width: fit-content;
+    padding: 10px;
+    box-shadow: 0 0 6px gray;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.card a{
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+.card img {
+    width: 300px;
+    border-radius: 10px;
+}
+.downbtn{
+    background-color: var(--bg-btndown);
+    border-radius: var(--border-rad);
+    color: white;
+}
+.downbtn:hover{
+    box-shadow: 0 0 6px var(--bg-btnplay);
+}
+.verbtn{
+    margin-left: 10px;
+    background-color:var(--bg-btnplay) ;
+    border-radius: var(--border-rad);
+    color: white;
+}
+
+.verbtn:hover{
+
+    box-shadow: 0 0 6px var(--bg-btndown);
+}
