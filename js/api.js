@@ -3,7 +3,14 @@ const container = document.querySelector('.container')
 const btnSearch = document.getElementById('btnSearch')
 const inputSearch = document.getElementById('inputSearch')
 
-btnSearch.onclick = async ()=>{
+inputSearch.addEventListener('keyup',(e)=>{
+    if(e.code == "Enter")
+    funBtnSearch()
+})
+
+btnSearch.onclick = funBtnSearch
+
+async function funBtnSearch(){
     let url = inputSearch.value
     let data = {
         url
@@ -15,6 +22,7 @@ btnSearch.onclick = async ()=>{
             'POST',
             JSON.stringify(data)
             )
+            console.log(response);
             insertElement(response)
             
         } 
@@ -28,6 +36,7 @@ btnSearch.onclick = async ()=>{
     } 
         
 }
+
 async function fillItems() {
     const data = {
         url:'bad bunny'
@@ -40,8 +49,8 @@ async function fillItems() {
     insertarItems(items) 
 }    
 async function apirequest(url,method,body) {
-
-    // window.location.href = apiurl    
+    container.classList.add('container2')
+    container.innerHTML = '<svg class="loader" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="spinner" class="svg-inline--fa fa-spinner fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path></svg>'
     const data = await fetch(url,{
         method,
         mode:'cors',
@@ -55,12 +64,17 @@ async function apirequest(url,method,body) {
         body
         
     })
-    
+    container.classList.remove('container2')
+    container.innerHTML = ''
     return data.json()
-    
 }
 function insertElement({title,videoId,video_url}) {
-        insertarItems([{id:videoId,title,url:video_url}])
+        const object = {
+            id:videoId,
+            title,
+            url:video_url
+        }
+        insertarItems([object])
 }
 
 document.addEventListener('DOMContentLoaded',fillItems)
@@ -72,7 +86,6 @@ const videoicon = `<svg aria-hidden="true" focusable="false" data-prefix="fas" d
 
 function insertarItems(items) {
     //e.id,e.title,e.url
-    container.innerHTML = ''
     items.forEach(e => {
         const card = document.createElement('div')
         card.classList.add('card')
