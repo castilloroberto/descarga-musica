@@ -6,10 +6,17 @@
 }
 
 :root{
+    --dark-light-bg:#333;
+    --dark-bg:rgb(39, 39, 39);
     --btn-bg:rgb(71, 71, 71);
     --border-rad:5px;
     --bg-btnplay:#26de81;
     --bg-btndown:dodgerblue;
+    --gray:rgb(233, 233, 233);
+
+}
+body{
+    background-color: var(--dark-bg);
 }
 .navbar{
     display: flex;
@@ -17,7 +24,7 @@
     top: 0;
     width: 100%;
     align-items: center;
-    background-color: #333;
+    background-color: var(--dark-light-bg);
     color: white;
     height: 3rem;
     padding: 10px;
@@ -50,6 +57,7 @@
     width: 500px;
     height: 33px;
     padding: 5px;
+    font-weight: bold;
     background-color: black;
     border: none;
     border: 1px solid black;
@@ -58,6 +66,8 @@
     
 }
 .search input:focus{
+    background-color: rgb(208, 246, 255);
+    color: var(--dark-light-bg);
     border: 1px solid dodgerblue;
 
 }
@@ -86,7 +96,33 @@
 
 
 
-
+.radiogroup{
+    display: flex;
+    justify-content: space-around;
+}
+.radiogroup input{
+    visibility: hidden;
+}
+.radiogroup label {
+    display: flex;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 10px;
+    align-items: center;
+    background-color: white;
+    color: gray;
+}
+.radiogroup label:hover{
+    box-shadow: 0 0 6px rgb(255, 255, 255);
+}
+.radiogroup label.checked{
+    background-color: var(--bg-btnplay);
+    color: white;
+}
+.radiogroup label svg{
+    margin-left: 5px;
+    width: 20px;
+}
 
 
 
@@ -95,32 +131,31 @@
 
 
 main{
-    margin-top: 4rem;
-    margin-left: 3rem;
+    /* margin-top: 4rem; */
+    margin: 4rem auto;
 }
 
-.flexcontainer{
-    display: flex;
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
 }
-
 .card{
-    width: fit-content;
-    padding: 10px;
-    box-shadow: 0 0 6px gray;
-    border-radius: 20px;
-    margin-bottom: 10px;
+    width: 295px;
+    padding-bottom: 10px;
+    margin:20px auto;
+    border-bottom: 1px solid gray;
 }
-
 .card a{
-    display: block;
-    text-decoration: none;
-    color: #333;
+    color: white;
 }
-.card img {
-    width: 300px;
-    border-radius: 10px;
+.btns-container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
 }
 .downbtn{
+    margin-top: 5px;
     background-color: var(--bg-btndown);
     border-radius: var(--border-rad);
     color: white;
@@ -138,4 +173,33 @@ main{
 .verbtn:hover{
 
     box-shadow: 0 0 6px var(--bg-btndown);
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width:800px) {
+    .brand h1{
+        display: none;
+        
+    }
+    .container{
+        display: block;
+    }
+    .search input{
+        width: 50vw;
+    }
+    .cajasearch{
+        justify-content: center;
+
+    }
+    .card{
+        padding-bottom: 10px;
+        margin:20px auto;
+        border-bottom: 1px solid gray;
+    }
 }
