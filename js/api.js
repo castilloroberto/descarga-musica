@@ -9,41 +9,34 @@ btnSearch.onclick = async ()=>{
         url
     }
     if (url.startsWith('https://www.youtube.com')) {
-        console.log('es un link');
         if (url) {
         const response = await apirequest(
             'https://robert-descarga-musica-nodejs.herokuapp.com/info',
             'POST',
             JSON.stringify(data)
             )
-            console.log(response);
             insertElement(response)
             
-        } else {
-            console.log('Input vacio');
-        }
+        } 
     }else{
-        console.log('es una busqueda');
         const response = await apirequest(
             'https://robert-descarga-musica-nodejs.herokuapp.com/search',
             'POST',
             JSON.stringify(data)
         )
-        console.log(response);
         insertarItems(response.items)
     } 
         
 }
 async function fillItems() {
     const data = {
-        url:'musica'
+        url:'bad bunny'
     }
     const {items} = await apirequest(
         'https://robert-descarga-musica-nodejs.herokuapp.com/search',
         'POST',
         JSON.stringify(data)
     )
-    console.log(items[0]);
     insertarItems(items) 
 }    
 async function apirequest(url,method,body) {
@@ -80,7 +73,6 @@ const videoicon = `<svg aria-hidden="true" focusable="false" data-prefix="fas" d
 function insertarItems(items) {
     //e.id,e.title,e.url
     container.innerHTML = ''
-    console.log('se ejecuto insert items');
     items.forEach(e => {
         const card = document.createElement('div')
         card.classList.add('card')
@@ -117,11 +109,7 @@ function insertarItems(items) {
         radiogroup.append(labelvideo)
         radiogroup.append(labelaudio)
 
-        // radioaudio.addEventListener('change',()=>{
-        //     labelaudio.classList.toggle('checked')
-        //     console.log(labelaudio);
-            
-        // })
+
         labelaudio.addEventListener('click',()=>{
             labelaudio.classList.add('checked')
             labelvideo.classList.remove('checked')
