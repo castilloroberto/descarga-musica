@@ -46,6 +46,7 @@ async function fillItems() {
         'POST',
         JSON.stringify(data)
     )
+    
     insertarItems(items) 
 }    
 async function apirequest(url,method,body) {
@@ -85,9 +86,12 @@ const videoicon = `<svg aria-hidden="true" focusable="false" data-prefix="fas" d
 
 
 function insertarItems(items) {
+    console.log(items);
+
     //e.id,e.title,e.url
     items.forEach(e => {
-        const card = document.createElement('div')
+        if (e.type == "video") {
+            const card = document.createElement('div')
         card.classList.add('card')
 
         const radiogroup = document.createElement('div')
@@ -171,6 +175,8 @@ function insertarItems(items) {
         
         //ultima parte 
         container.append(card)
+        }
+        
     });
 }
 
