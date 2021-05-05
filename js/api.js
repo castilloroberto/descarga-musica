@@ -4,8 +4,8 @@ const btnSearch = document.getElementById('btnSearch')
 const inputSearch = document.getElementById('inputSearch')
 
 inputSearch.addEventListener('keyup',(e)=>{
-    if(e.code == "Enter" || e.code == "Search")
-    funBtnSearch()
+    if(e.code == "Enter" || e.key == "Enter")
+        funBtnSearch()
 })
 
 btnSearch.onclick = funBtnSearch
