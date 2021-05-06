@@ -3,6 +3,9 @@ const container = document.querySelector('.container')
 const btnSearch = document.getElementById('btnSearch')
 const inputSearch = document.getElementById('inputSearch')
 
+let address = 'https://robert-descarga-musica-nodejs.herokuapp.com'
+// let address = 'http://localhost:3000'
+
 inputSearch.addEventListener('keyup',(e)=>{
     if(e.code == "Enter" || e.key == "Enter")
         funBtnSearch()
@@ -18,7 +21,7 @@ async function funBtnSearch(){
     if (url.startsWith('https://www.youtube.com')) {
         if (url) {
         const response = await apirequest(
-            'https://robert-descarga-musica-nodejs.herokuapp.com/info',
+            `${address}/info`,
             'POST',
             JSON.stringify(data)
             )
@@ -28,7 +31,7 @@ async function funBtnSearch(){
         } 
     }else{
         const response = await apirequest(
-            'https://robert-descarga-musica-nodejs.herokuapp.com/search',
+            `${address}/search`,
             'POST',
             JSON.stringify(data)
         )
@@ -42,7 +45,7 @@ async function fillItems() {
         url:'bad bunny'
     }
     const {items} = await apirequest(
-        'https://robert-descarga-musica-nodejs.herokuapp.com/search',
+        `${address}/search`,
         'POST',
         JSON.stringify(data)
     )
@@ -150,10 +153,10 @@ function insertarItems(items) {
         downbtn.addEventListener('click', async()=>{
 
             if (radioaudio.checked) {
-                window.location.href = `https://robert-descarga-musica-nodejs.herokuapp.com/song?url=${e.url}`
+                window.location.href = `${address}/song?url=${e.url}`
                 
             }else{
-                window.location.href = `https://robert-descarga-musica-nodejs.herokuapp.com/download?url=${e.url}`
+                window.location.href = `${address}/download?url=${e.url}`
 
             }
 
