@@ -40,7 +40,7 @@ body{
     padding: 10px;
 }
 .navbar a{
-    color: gray;
+    color: white;
     flex-grow: 1;
 }
 .brand{
