@@ -42,7 +42,7 @@ async function funBtnSearch(){
 
 async function fillItems() {
     const data = {
-        url:'bad bunny'
+        url:'musica'
     }
     const {items} = await apirequest(
         `${address}/search`,

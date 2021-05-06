@@ -25,7 +25,31 @@ body{
     background-color: var(--dark-light-bg);
 
 }
+body::-webkit-scrollbar{
+    width: 0.5rem;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: dodgerblue;
+    border-radius: 10px;
+}
+body::-webkit-scrollbar-track{
+    
+    background-color: var(--dark-light-bg);
+}
+
+.nav2{
+    display: none;
+    position: fixed;
+    width: 100vw;
+    background-color: var(--dark-light-bg);
+    height: var(--nav-height);
+    z-index: 999;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
 .navbar{
+    z-index: 100000;
     display: flex;
     position: fixed;
     top: 0;
@@ -34,16 +58,22 @@ body{
     background-color: var(--dark-light-bg);
     color: white;
     height: var(--nav-height);
-    padding: 10px;
+    padding: 0 50px;
+    /* padding: 10px; */
 }
 .navbar a{
     color: white;
+}
+.brand2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .brand{
     flex-grow: 1;
     display: flex;
 }
-.brand svg{
+.brand svg,.brand2 svg{
     margin-right: 5px;
     width: 20px;
 }
@@ -97,7 +127,7 @@ body{
     transition: color 0.75s;
 }
 .search button:hover svg{
-    color: rgb(175, 175, 175);
+    color: rgb(202, 202, 202);
 }
 .search button svg {
 
@@ -241,9 +271,13 @@ footer svg{
 
 @media only screen and (max-width:800px) {
     .navbar{
+        padding: 0 20px;
         border-top:1px solid rgb(66, 66, 66);
         top: auto;
         bottom: 0;
+    }
+    .nav2{
+        display: flex;
     }
     .brand h1{
         display: none;
