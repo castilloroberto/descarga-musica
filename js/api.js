@@ -25,7 +25,7 @@ async function funBtnSearch(){
             'POST',
             JSON.stringify(data)
             )
-            console.log(response);
+            // console.log(response);
             insertElement(response)
             
         } 
@@ -89,7 +89,7 @@ const videoicon = `<svg aria-hidden="true" focusable="false" data-prefix="fas" d
 
 
 function insertarItems(items) {
-    console.log(items);
+    // console.log(items);
 
     //e.id,e.title,e.url
     items.forEach(e => {
