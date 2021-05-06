@@ -20,10 +20,7 @@ a{
     text-decoration: none;
     color: white;
 }
-footer a{
-    border-bottom: 2px solid white;
 
-}
 body{
     background-color: var(--dark-light-bg);
 
@@ -41,9 +38,9 @@ body{
 }
 .navbar a{
     color: white;
-    flex-grow: 1;
 }
 .brand{
+    flex-grow: 1;
     display: flex;
 }
 .brand svg{
@@ -206,7 +203,10 @@ footer{
     background-color: var(--dark-light-bg);
     color: white;
 }
+footer a{
+    border-bottom: 2px solid white;
 
+}
 
 
 .loader{
