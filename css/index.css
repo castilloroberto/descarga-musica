@@ -19,7 +19,10 @@
 a{
     text-decoration: none;
     color: white;
+}
+footer a{
     border-bottom: 2px solid white;
+
 }
 body{
     background-color: var(--dark-light-bg);
