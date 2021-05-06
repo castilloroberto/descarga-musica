@@ -240,6 +240,11 @@ footer svg{
 
 
 @media only screen and (max-width:800px) {
+    .navbar{
+        border-top:1px solid rgb(66, 66, 66);
+        top: auto;
+        bottom: 0;
+    }
     .brand h1{
         display: none;
         
@@ -269,5 +274,6 @@ footer svg{
     }
     footer{
         flex-direction: column;
+        margin-bottom: var(--nav-height) ;
     }
 }
