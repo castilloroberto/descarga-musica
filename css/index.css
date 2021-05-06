@@ -41,10 +41,10 @@ body{
 }
 .navbar a{
     color: gray;
+    flex-grow: 1;
 }
 .brand{
     display: flex;
-    flex-grow: 1;
 }
 .brand svg{
     margin-right: 5px;
