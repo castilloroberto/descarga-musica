@@ -7,13 +7,14 @@
 
 :root{
     --dark-light-bg:#333;
-    --dark-bg:rgb(39, 39, 39);
+    --dark-bg:#272727;
     --btn-bg:rgb(71, 71, 71);
     --border-rad:5px;
     --bg-btnplay:#26de81;
     --bg-btndown:dodgerblue;
     --gray:rgb(233, 233, 233);
     --nav-height:3rem;
+    --nav-border:1px solid rgb(66, 66, 66);
 
 }
 a{
@@ -45,9 +46,13 @@ body::-webkit-scrollbar-track{
     height: var(--nav-height);
     z-index: 999;
     top: 0;
-    justify-content: center;
+    padding: 0 20px;
     align-items: center;
+    border-bottom:var(--nav-border) ;
 }
+.nav2 a{
+    flex-grow: 1;
+} 
 .navbar{
     z-index: 100000;
     display: flex;
@@ -64,18 +69,14 @@ body::-webkit-scrollbar-track{
 .navbar a{
     color: white;
 }
-.brand2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .brand{
     flex-grow: 1;
     display: flex;
 }
-.brand svg,.brand2 svg{
+.brand .svg,.nav2 .svg{
     margin-right: 5px;
-    width: 20px;
+    width: 30px;
 }
 .cajasearch{
     display: flex;
@@ -257,10 +258,10 @@ footer a{
     }
 }
 
-footer svg{
+footer .svg{
     margin-right: 20px;
-    width: 100px;
-    height: 200px;
+    /* width: 200px;
+    height: 200px; */
     color: orange;
 }
 
@@ -269,20 +270,45 @@ footer svg{
 
 
 
-@media only screen and (max-width:800px) {
+
+/*ipad pro*/
+@media only screen and (max-width:1024px) {
     .navbar{
         padding: 0 20px;
-        border-top:1px solid rgb(66, 66, 66);
+        border-top:var(--nav-border) ;
         top: auto;
         bottom: 0;
     }
     .nav2{
         display: flex;
     }
-    .brand h1{
+    .brand{
         display: none;
         
     }
+    .cajasearch{
+        justify-content: center;
+
+    }
+    footer{
+        --footer-mg:calc(var(--nav-height) + 1rem);
+        margin-bottom:var(--footer-mg) ;
+    }
+   
+    
+}
+
+
+@media only screen and (max-width:950px) {
+
+    .container{
+        grid-template-columns: repeat(2,1fr);
+
+    }
+}
+@media only screen and (max-width:650px) {
+    
+
     .container{
         display: flex;
         justify-content: center;
@@ -292,10 +318,7 @@ footer svg{
     .search input{
         width: 50vw;
     }
-    .cajasearch{
-        justify-content: center;
-
-    }
+ 
     .card{
         padding-bottom: 10px;
         margin:20px auto;
@@ -306,8 +329,11 @@ footer svg{
         width: 100px;
        
     }
+
     footer{
+        
         flex-direction: column;
-        margin-bottom: var(--nav-height) ;
+        margin-bottom:var(--footer-mg) ;
     }
+    
 }
