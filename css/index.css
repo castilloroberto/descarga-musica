@@ -226,14 +226,12 @@ main{
     box-shadow: 0 0 6px var(--bg-btnplay);
 }
 .verbtn{
-    margin-left: 10px;
     background-color:var(--bg-btnplay) ;
     border-radius: var(--border-rad);
     color: white;
 }
 
 .verbtn:hover{
-
     box-shadow: 0 0 6px var(--bg-btndown);
 }
 footer{
@@ -274,6 +272,32 @@ footer .svg{
     height: 200px; */
     color: orange;
 }
+.install{
+    display: flex;
+    position: absolute;
+    width: 25vw;
+    height: 25vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 100px gray;
+    background-color: white;
+    border-radius: 15px;
+    padding: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   display: none;
+}
+.visible{
+    display: flex;
+}
+.install-btn{
+    width: 100%;
+    display: flex;
+    justify-content:space-around ;
+    align-items: center;
+}
 
 
 
@@ -303,6 +327,11 @@ footer .svg{
     footer{
         --footer-mg:calc(var(--nav-height) + 1rem);
         margin-bottom:var(--footer-mg) ;
+    }
+
+    .install{
+        width: 80vw;
+        height: 50vw;
     }
    
     
@@ -347,3 +376,4 @@ footer .svg{
     }
     
 }
+
