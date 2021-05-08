@@ -1,4 +1,7 @@
 
+document.addEventListener('DOMContentLoaded',fillItems)
+
+
 const container = document.querySelector('.container')
 const btnSearch = document.getElementById('btnSearch')
 const inputSearch = document.getElementById('inputSearch')
@@ -44,33 +47,52 @@ async function fillItems() {
     const data = {
         url:'musica'
     }
-    const {items} = await apirequest(
-        `${address}/search`,
-        'POST',
-        JSON.stringify(data)
-    )
-    
-    insertarItems(items) 
+    try {
+        
+        const {items} = await apirequest(
+            `${address}/search`,
+            'POST',
+            JSON.stringify(data)
+        )
+        
+        insertarItems(items) 
+    } catch (error) {
+        
+    }
 }    
 async function apirequest(url,method,body) {
-    container.classList.add('container2')
-    container.innerHTML = '<img src="img/loading512.png" class="loader"alt="">'
-    const data = await fetch(url,{
-        method,
-        mode:'cors',
-        cache:'no-cache',
-        credentials:'same-origin',
-        headers:{
-            'Content-Type':'application/json'
-        },
-        redirect:'follow',
-        referrerPolicy:'no-referrer',
-        body
+    
+    const internet = window.navigator.onLine
+    
+    if (internet) {
+        container.innerHTML = ''
+        container.classList.add('container2')
+        container.innerHTML = '<img src="img/loading512.png" class="loader"alt="">'
+        const data = await fetch(url,{
+            method,
+            mode:'cors',
+            cache:'no-cache',
+            credentials:'same-origin',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            redirect:'follow',
+            referrerPolicy:'no-referrer',
+            body
+            
+        })
+        container.classList.remove('container2')
+        container.innerHTML = ''
+        return data.json()
+    }else{
+        container.classList.add('container2')
+        container.innerHTML = `
+            <img src="img/nointernet512.png" class="nointernet" alt="Sin conexion  internet">
+            <span class="offlinemgs">Upps!! Parece Que NO Tienes Internet</span>
+        `
         
-    })
-    container.classList.remove('container2')
-    container.innerHTML = ''
-    return data.json()
+    }
+    
 }
 function insertElement({title,videoId,video_url}) {
         const object = {
@@ -81,7 +103,6 @@ function insertElement({title,videoId,video_url}) {
         insertarItems([object])
 }
 
-document.addEventListener('DOMContentLoaded',fillItems)
 
 
 const songicon = `<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="music" class="svg-inline--fa fa-music fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M470.38 1.51L150.41 96A32 32 0 0 0 128 126.51v261.41A139 139 0 0 0 96 384c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V214.32l256-75v184.61a138.4 138.4 0 0 0-32-3.93c-53 0-96 28.66-96 64s43 64 96 64 96-28.65 96-64V32a32 32 0 0 0-41.62-30.49z"></path></svg>`

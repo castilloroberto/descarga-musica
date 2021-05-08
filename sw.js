@@ -6,7 +6,8 @@ self.addEventListener('install',e =>{
             "./css/index.css",
             "./js/api.js",
             "./img/logo144.png",
-            "./img/logo192.png"
+            "./img/logo192.png",
+            "./img/nointernet512.png"
            
         ])
     ) 

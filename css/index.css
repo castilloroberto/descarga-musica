@@ -191,6 +191,16 @@ main{
     justify-content: center;
     align-items: center;
 }
+.container2 img.nointernet{
+    width: 150px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.container2 span.offlinemgs{
+    color: white;
+} 
 .card{
     width: 295px;
     padding-bottom: 10px;
