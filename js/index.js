@@ -1,22 +1,3 @@
-import { askSomething } from "./functions.js";
-
-const instalBtn = document.querySelector('.btninstall')
-const cancelBtn = document.querySelector('.btncancel')
-cancelBtn.onclick = verinstallPrompt
-const installlpromp = document.querySelector('.install')
-
-let install = JSON.parse(localStorage.getItem('install'))
-
-function verinstallPrompt(){
-    
-        installlpromp.classList.toggle('visible')
-        askSomething()
-    
-}
-
-
-console.log('install:',install);
-
 
 let dererredPromp
 window.addEventListener('beforeinstallprompt', e =>{
@@ -30,27 +11,7 @@ window.addEventListener('beforeinstallprompt', e =>{
 })
 
 
-instalBtn.addEventListener('click',installAPP)
-async function installAPP(){
 
-   
-    dererredPromp.prompt()
-    const {outcome} = await dererredPromp.userChoice
-    console.log('user choice',outcome);
-    dererredPromp = null
-    verinstallPrompt()
-    
-    // if (install == null ) {
-    
-    //     if (confirm('HOLA')) {
-    //         dererredPromp.prompt()
-    //         const {outcome} = await dererredPromp.userChoice
-    //         console.log('user choice',outcome);
-    //         dererredPromp = null
-    
-    //     }
-    // }
-}
 
 
 
