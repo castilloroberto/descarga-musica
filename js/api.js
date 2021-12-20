@@ -50,7 +50,13 @@ async function fillItems() {
     );
 
     insertarItems(items);
-  } catch (error) {}
+  } catch (error) {
+    insertError();
+  }
+}
+function insertError() {
+  container.classList.remove("container2");
+  container.innerHTML = "<h1 style='color:white;'>Ups ha habido un error</h1>";
 }
 async function apirequest(url, method, body) {
   const internet = window.navigator.onLine;
